@@ -1,30 +1,38 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import {
+        CitiesContainer,
+        CardContainer,
+        Card,
+        CityName,
+        CityPopulation,
+        CitizensText
+        } from "./styles";
 
 
 const Cities = (cities) => {
   const renderCards = () => cities.map(({name, population})=> (
-    <div variant="outlined" style={{margin:'2em', flexBasis:'15%',border:'2px solid black', padding:'1em'}}>
-        <Typography variant="h4" style={{textAlign:"center"}}>
+    <Card variant="outlined">
+        <CityName variant="h4">
           {name}
-        </Typography>
-        <Typography variant="h4" style={{textAlign:"center", marginTop:'1em '}}>
+        </CityName>
+        <CityPopulation variant="h4">
           {population.toLocaleString()}
-        </Typography>
-        <Typography variant="h4" style={{textAlign:"center", marginTop:'.5em '}}>
+        </CityPopulation>
+        <CitizensText variant="h4">
           Citizens
-        </Typography>
-    </div>
+        </CitizensText>
+    </Card>
   ));
   return(
-    <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
+    <CitiesContainer>
       <div>
         <Typography variant="h5">Cities</Typography>
       </div>
-      <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly', flexWrap:'wrap', flexBasis:0}}>
+      <CardContainer>
         {renderCards()}
-      </div>
-    </div>
+      </CardContainer>
+    </CitiesContainer>
   )
 };
 
